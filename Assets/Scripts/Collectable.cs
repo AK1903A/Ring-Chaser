@@ -12,8 +12,7 @@ public class Collectable : MonoBehaviour
     private Transform objectTransform; // Reference to the object's transform
     public float shrinkDuration = 1f; // Duration of the shrinking animation
     public float spinSpeed = 360f; // Spin speed in degrees per second
-    private int Ring = 0; 
-    public TextMeshProUGUI ringText;
+    
 
     private Vector3 targetPosition; // Final position to zip toward
 
@@ -41,8 +40,8 @@ public class Collectable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Ring++;
-            ringText.text ="Rings:" + Ring.ToString();
+            GameManager.gameManager.Ring++;
+            GameManager.gameManager.ringText.text ="Rings:" + GameManager.gameManager.Ring.ToString();
             Debug.Log("Player collected the ring!");
 
             // Play the sound effect
