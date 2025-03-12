@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         Vector3 LookDirection = GameManager.gameManager.player.transform.position - transform.position;
         LookDirection.Normalize();
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookDirection),trackingSpeed*Time.deltaTime);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookDirection),trackingSpeed*Time.deltaTime);
       
         transform.position += transform.forward*speed*Time.deltaTime; 
     }
