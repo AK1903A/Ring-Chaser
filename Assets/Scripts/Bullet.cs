@@ -5,17 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
+    public GameObject playerRef;
     // Start is called before the first frame update
     public float trackingSpeed = 0.1f;
     void Start()
     {
         StartCoroutine(DestroyBullet());
+        playerRef = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 LookDirection = GameManager.gameManager.player.transform.position - transform.position;
+        //Vector3 LookDirection = GameManager.gameManager.player.transform.position - transform.position;
+        Vector3 LookDirection = playerRef.transform.position;
         LookDirection.Normalize();
         //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(LookDirection),trackingSpeed*Time.deltaTime);
       
